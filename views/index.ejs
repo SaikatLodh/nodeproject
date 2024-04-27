@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+</head>
+
+<body>
+
+    <div class="bg-[#171719] w-full h-screen pt-[50px]">
+
+        <form action="/create" method="post" class="flex justify-center flex-col items-center">
+            <input type="text" name="filename" id="" class="w-[90%] h-[40px] bg-[#262629] m-auto mb-3 rounded-lg px-3 text-white" placeholder="File name">
+            <input type="text" name="name" id="" class="w-[90%] h-[40px] bg-[#262629] rounded-lg px-3 text-white" placeholder="Problems">
+
+            <div><button class="w-[100px] h-[40px] bg-[#18A9EA] rounded-lg mt-[20px] text-white">Create Here</button></div>
+        </form>
+        <div class="w-[90%] m-auto mt-[100px]">
+            <div class="flex flex-wrap gap-3">
+
+               <% 
+               if(files.length > 0){
+                %>
+                
+<% 
+files.forEach((val) =>{ %> 
+    <div class="py-5 px-5 bg-[#262629] rounded-lg">
+        
+        <div><h3 class="text-white"><%= val%> </h3></div>
+    
+        <div class="flex items-center gap-3 pt-2">
+           <a href="/edit/<%= val%>"><div><h3 class="text-[#18A9EA]">Edite </h3></div></a> 
+           <a href="/files/<%= val%>"> <div><h3 class="text-[#18A9EA]"> Read More</h3></div></a>
+        </div>
+      
+    </div>
+    
+    <%
+   
+})
+
+%>
+
+                <%}else{
+
+                    %> 
+                    <h3 class="text-white"> No tast yet</h3>
+                    
+                    <%
+                }
+               %>
+            </div>
+        </div>
+    </div>
+
+
+    
+
+    <script src="https://cdn.tailwindcss.com"></script>
+</body>
+
+</html>
